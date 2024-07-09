@@ -1,0 +1,125 @@
+find_package(PostgreSQL 15)
+find_package(ODBC)
+
+set(TXBENCH_BASE_SOURCES
+        duckdb/hattrick/HattrickDriver.cpp
+        duckdb/hattrick/HattrickQueryClient.cpp
+        duckdb/hattrick/HattrickRefreshClient.cpp
+        duckdb/tpch/TpchDriver.cpp
+        duckdb/tpch/TpchQueryClient.cpp
+        duckdb/tpch/TpchRefreshClient.cpp
+        duckdb/DuckDB.cpp
+        duckdb/DuckDBClient.cpp
+        duckdb/DuckDBDriver.cpp
+        duckdb/DuckDBInterface.cpp
+        postgres/hattrick/HattrickDriver.cpp
+        postgres/hattrick/HattrickQueryClient.cpp
+        postgres/hattrick/HattrickRefreshClient.cpp
+        postgres/hybench/HyBenchDriver.cpp
+        postgres/hybench/HyBenchOLAPClient.cpp
+        postgres/hybench/HyBenchOLTPClient.cpp
+        postgres/hybench/HyBenchQueryClient.cpp
+        postgres/hybench/HyBenchRefreshClient.cpp
+        postgres/tatp/TatpClient.cpp
+        postgres/tatp/TatpDriver.cpp
+        postgres/tpcc/TpccClient.cpp
+        postgres/tpcc/TpccDriver.cpp
+        postgres/tpcch/TpcchDriver.cpp
+        postgres/tpcch/TpcchQueryClient.cpp
+        postgres/tpch/TpchDriver.cpp
+        postgres/tpch/TpchQueryClient.cpp
+        postgres/tpch/TpchRefreshClient.cpp
+        postgres/Postgres.cpp
+        postgres/PostgresClient.cpp
+        postgres/PostgresDriver.cpp
+        singlestore/hattrick/HattrickDriver.cpp
+        singlestore/hattrick/HattrickQueryClient.cpp
+        singlestore/hattrick/HattrickRefreshClient.cpp
+        singlestore/tatp/TatpClient.cpp
+        singlestore/tatp/TatpDriver.cpp
+        singlestore/tpcc/TpccClient.cpp
+        singlestore/tpcc/TpccDriver.cpp
+        singlestore/tpcch/TpcchDriver.cpp
+        singlestore/tpcch/TpcchQueryClient.cpp
+        singlestore/tpch/TpchDriver.cpp
+        singlestore/tpch/TpchQueryClient.cpp
+        singlestore/tpch/TpchRefreshClient.cpp
+        singlestore/SingleStore.cpp
+        singlestore/SingleStoreClient.cpp
+        singlestore/SingleStoreConnectionConfig.cpp
+        singlestore/SingleStoreDriver.cpp
+        tidb/hattrick/HattrickDriver.cpp
+        tidb/hattrick/HattrickQueryClient.cpp
+        tidb/hattrick/HattrickRefreshClient.cpp
+        tidb/tpch/TpchDriver.cpp
+        tidb/tpch/TpchQueryClient.cpp
+        tidb/tpch/TpchRefreshClient.cpp
+        tidb/TiDB.cpp
+        tidb/TiDBClient.cpp
+        tidb/TiDBDriver.cpp
+        txbench/hattrick/Generator.cpp
+        txbench/hattrick/QueryGenerator.cpp
+        txbench/hattrick/TransactionGenerator.cpp
+        txbench/hybench/Config.cpp
+        txbench/hybench/Generator.cpp
+        txbench/hybench/QueryGenerator.cpp
+        txbench/hybench/TransactionGenerator.cpp
+        txbench/io/CsvWriter.cpp
+        txbench/io/JsonParser.cpp
+        txbench/io/ProgressPrinter.cpp
+        txbench/odbc/Connection.cpp
+        txbench/odbc/Environment.cpp
+        txbench/odbc/OdbcConnectionConfig.cpp
+        txbench/odbc/OdbcError.cpp
+        txbench/odbc/PreparedStatement.cpp
+        txbench/odbc/Statement.cpp
+        txbench/pq/PqConnection.cpp
+        txbench/pq/PqConnectionConfig.cpp
+        txbench/pq/PqPreparedStatement.cpp
+        txbench/pq/PqResult.cpp
+        txbench/tatp/TatpGenerator.cpp
+        txbench/tatp/TatpTransactionGenerator.cpp
+        txbench/tpcc/TpccConfig.cpp
+        txbench/tpcc/TpccGenerator.cpp
+        txbench/tpcc/TpccTransactionGenerator.cpp
+        txbench/tpcch/TpcchGenerator.cpp
+        txbench/tpch/TpchQueryGenerator.cpp
+        txbench/BenchmarkConfig.cpp
+        txbench/ConnectionConfig.cpp
+        txbench/Database.cpp
+        txbench/DatabaseClient.cpp
+        txbench/DatabaseDriver.cpp
+        txbench/DriverConfig.cpp
+        txbench/Random.cpp
+        umbra/hattrick/HattrickDriver.cpp
+        umbra/hattrick/HattrickQueryClient.cpp
+        umbra/hattrick/HattrickRefreshClient.cpp
+        umbra/hybench/HyBenchDriver.cpp
+        umbra/hybench/HyBenchOLAPClient.cpp
+        umbra/hybench/HyBenchOLTPClient.cpp
+        umbra/hybench/HyBenchQueryClient.cpp
+        umbra/hybench/HyBenchRefreshClient.cpp
+        umbra/load/LoadConfig.cpp
+        umbra/tatp/TatpClient.cpp
+        umbra/tatp/TatpDriver.cpp
+        umbra/tpcc/TpccClient.cpp
+        umbra/tpcc/TpccDriver.cpp
+        umbra/tpcch/TpcchDriver.cpp
+        umbra/tpcch/TpcchQueryClient.cpp
+        umbra/tpch/TpchDriver.cpp
+        umbra/tpch/TpchQueryClient.cpp
+        umbra/tpch/TpchRefreshClient.cpp
+        umbra/Umbra.cpp
+        umbra/UmbraClient.cpp
+        umbra/UmbraConfig.cpp
+        umbra/UmbraConnectionConfig.cpp
+        umbra/UmbraDriver.cpp
+)
+
+add_library(txbench-base STATIC ${TXBENCH_BASE_SOURCES})
+target_include_directories(txbench-base PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(txbench-base PRIVATE /opt/microsoft/msodbcsql18/include)
+target_link_libraries(txbench-base PRIVATE picojson)
+target_link_libraries(txbench-base PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../thirdparty/duckdb/libduckdb.so)
+target_link_libraries(txbench-base PRIVATE PostgreSQL::PostgreSQL)
+target_link_libraries(txbench-base PRIVATE ODBC::ODBC)

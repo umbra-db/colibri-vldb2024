@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS hattrick CASCADE;
+CREATE SCHEMA hattrick;

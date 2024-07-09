@@ -1,0 +1,14 @@
+#---------------------------------------------------------------------------
+# Copyright (c) 2022 TUM. All rights reserved.
+#---------------------------------------------------------------------------
+version: '2'
+
+services:
+  txbench:
+    image: ghcr.io/umbra-db/colibri-vldb2024/txbench
+    environment:
+      - HOST_UID=${HOST_UID}
+      - HOST_GID=${HOST_GID}
+    privileged: true
+    volumes:
+      - ${HOST_DATA_DIR}:/data

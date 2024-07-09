@@ -1,0 +1,8 @@
+{
+  "driver": "",
+  "host": "",
+  "port": 0,
+  "username": "",
+  "password": "",
+  "pipeline_depth": 512
+}

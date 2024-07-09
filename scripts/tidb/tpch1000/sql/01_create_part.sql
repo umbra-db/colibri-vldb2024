@@ -1,0 +1,14 @@
+create table part
+(
+    p_partkey     bigint         not null,
+    p_name        varchar(55)    not null,
+    p_mfgr        char(25)       not null,
+    p_brand       char(10)       not null,
+    p_type        varchar(25)    not null,
+    p_size        integer        not null,
+    p_container   char(10)       not null,
+    p_retailprice decimal(12, 2) not null,
+    p_comment     varchar(23)    not null,
+    primary key (p_partkey)
+);
+alter table part set tiflash replica 1;

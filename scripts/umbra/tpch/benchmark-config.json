@@ -1,0 +1,27 @@
+{
+  "database": "",
+  "init_scripts": [
+  ],
+  "schema_scripts": [
+    "sql/00_create_part.sql",
+    "sql/01_create_supplier.sql",
+    "sql/02_create_partsupp.sql",
+    "sql/03_create_customer.sql",
+    "sql/04_create_orders.sql",
+    "sql/05_create_lineitem.sql",
+    "sql/06_create_nation.sql",
+    "sql/07_create_region.sql"
+  ],
+  "load_scripts": [
+    "sql/08_load_part.sql",
+    "sql/09_load_supplier.sql",
+    "sql/10_load_partsupp.sql",
+    "sql/11_load_customer.sql",
+    "sql/12_load_orders.sql",
+    "sql/13_load_lineitem.sql",
+    "sql/13_load_nation.sql",
+    "sql/14_load_region.sql"
+  ],
+  "function_scripts": [
+  ]
+}

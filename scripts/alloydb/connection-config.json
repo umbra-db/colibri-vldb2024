@@ -1,0 +1,7 @@
+{
+  "host": "txbench-alloydb",
+  "port": 5432,
+  "username": "postgres",
+  "password": "postgres",
+  "pipeline_depth": 16
+}

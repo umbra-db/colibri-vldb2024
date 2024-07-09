@@ -1,0 +1,6 @@
+{
+  "bulk_operations": true,
+  "relation": "columnar",
+  "backend": "filesystem",
+  "blockshift": 18
+}

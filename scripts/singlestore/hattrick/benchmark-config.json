@@ -1,0 +1,28 @@
+{
+  "database": "hattrick",
+  "init_scripts": [
+    "sql/00_database.sql"
+  ],
+  "schema_scripts": [
+    "sql/01_create_part.sql",
+    "sql/02_create_customer.sql",
+    "sql/03_create_supplier.sql",
+    "sql/04_create_date.sql",
+    "sql/05_create_lineorder.sql",
+    "sql/06_create_history.sql"
+  ],
+  "load_scripts": [
+    "sql/07_load_part.sql",
+    "sql/08_load_customer.sql",
+    "sql/09_load_supplier.sql",
+    "sql/10_load_date.sql",
+    "sql/11_load_lineorder.sql",
+    "sql/12_load_history.sql"
+  ],
+  "function_scripts": [
+    "sql/13_create_neworder.sql",
+    "sql/14_create_payment.sql",
+    "sql/15_create_countorders.sql",
+    "sql/16_create_dispatch.sql"
+  ]
+}

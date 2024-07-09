@@ -1,0 +1,5 @@
+{
+  "warmup_time": 30,
+  "measure_time": 90,
+  "relation": "paged"
+}

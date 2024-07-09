@@ -1,0 +1,30 @@
+#---------------------------------------------------------------------------
+# Copyright (c) 2022 TUM. All rights reserved.
+#---------------------------------------------------------------------------
+version: '2'
+
+services:
+  txbench:
+    image: gitlab.db.in.tum.de:5005/schmidt/txbench/txbench
+    environment:
+      - HOST_UID=${HOST_UID}
+      - HOST_GID=${HOST_GID}
+      - MEMORYLIMIT=1024G
+    privileged: true
+    volumes:
+      - ${WORKING_DIR}/txbench/db:/db
+      - ${WORKING_DIR}/txbench/scripts:/txbench/scripts
+      - ${WORKING_DIR}/txbench/output:/txbench/output
+      - ${WORKING_DIR}/txbench/data:/data
+      - ${WORKING_DIR}/txbench/config:/txbench/config
+    networks:
+      txbench:
+        ipv4_address: 172.42.0.100
+    cpuset: "0-63"
+networks:
+  txbench:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.42.0.0/16
+          gateway: 172.42.0.1

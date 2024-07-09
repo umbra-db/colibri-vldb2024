@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS hattrick;
+CREATE DATABASE hattrick;

@@ -1,0 +1,47 @@
+#---------------------------------------------------------------------------
+# Copyright (c) 2022 TUM. All rights reserved.
+#---------------------------------------------------------------------------
+version: '2'
+
+services:
+  txbench-singlestore:
+    image: ghcr.io/umbra-db/colibri-vldb2024/singlestore
+    environment:
+      - LICENSE_KEY=${SINGLESTORE_LICENSE_KEY}
+      - ROOT_PASSWORD=SingleStore
+      - START_AFTER_INIT=Y
+      - HOST_UID=${HOST_UID}
+      - HOST_GID=${HOST_GID}
+    ports:
+      - 3306:3306
+    privileged: true
+    volumes:
+      - ${WORKING_DIR}/txbench/db:/var/lib/memsql
+      - ${WORKING_DIR}/txbench/data:/data
+      - ${WORKING_DIR}/txbench/output:/output
+    networks:
+      txbench:
+        ipv4_address: 172.42.0.100
+    cpuset: "0-63"
+  txbench:
+    image: ghcr.io/umbra-db/colibri-vldb2024/txbench
+    environment:
+      - HOST_UID=${HOST_UID}
+      - HOST_GID=${HOST_GID}
+    privileged: true
+    volumes:
+      - ${WORKING_DIR}/txbench/scripts:/txbench/scripts
+      - ${WORKING_DIR}/txbench/output:/txbench/output
+      - ${WORKING_DIR}/txbench/config:/txbench/config
+    depends_on:
+      - txbench-singlestore
+    networks:
+      txbench:
+        ipv4_address: 172.42.0.200
+networks:
+  txbench:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.42.0.0/16
+          gateway: 172.42.0.1

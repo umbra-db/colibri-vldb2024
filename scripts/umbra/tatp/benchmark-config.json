@@ -1,0 +1,29 @@
+{
+  "database": "",
+  "init_scripts": [
+  ],
+  "schema_scripts": [
+    "sql/00_create_subscriber.sql",
+    "sql/01_create_access_info.sql",
+    "sql/02_create_special_facility.sql",
+    "sql/03_create_call_forwarding.sql"
+  ],
+  "load_scripts": [
+    "sql/04_load_subscriber.sql",
+    "sql/05_load_access_info.sql",
+    "sql/06_load_special_facility.sql",
+    "sql/07_load_call_forwarding.sql"
+  ],
+  "function_scripts": [
+    "sql/08_create_urand.sql",
+    "sql/09_create_nurand.sql",
+    "sql/10_create_subrand.sql",
+    "sql/11_create_get_subscriber_data.sql",
+    "sql/12_create_get_new_destination.sql",
+    "sql/13_create_get_access_data.sql",
+    "sql/14_create_update_subscriber_data.sql",
+    "sql/15_create_update_location.sql",
+    "sql/16_insert_call_forwarding.sql",
+    "sql/17_delete_call_forwarding.sql"
+  ]
+}

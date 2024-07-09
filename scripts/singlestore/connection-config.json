@@ -1,0 +1,9 @@
+{
+  "driver": "MariaDB",
+  "host": "txbench-singlestore",
+  "port": 3306,
+  "username": "root",
+  "password": "SingleStore",
+  "isolation_level": "snapshot",
+  "pipeline_depth": 512
+}

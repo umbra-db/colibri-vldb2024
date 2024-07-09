@@ -1,0 +1,49 @@
+{
+  "database": "",
+  "init_scripts": [
+  ],
+  "schema_scripts": [
+    "sql/00_create_item.sql",
+    "sql/01_create_warehouse.sql",
+    "sql/02_create_stock.sql",
+    "sql/03_create_district.sql",
+    "sql/04_create_customer.sql",
+    "sql/05_create_history.sql",
+    "sql/06_create_orders.sql",
+    "sql/07_create_order_line.sql",
+    "sql/08_create_new_orders.sql",
+    "sql/09_create_region.sql",
+    "sql/10_create_nation.sql",
+    "sql/11_create_supplier.sql",
+    "sql/12_create_customer_index.sql",
+    "sql/13_create_orders_index.sql"
+  ],
+  "load_scripts": [
+    "sql/20_load_item.sql",
+    "sql/21_load_warehouse.sql",
+    "sql/22_load_stock.sql",
+    "sql/23_load_district.sql",
+    "sql/24_load_customer.sql",
+    "sql/25_load_history.sql",
+    "sql/26_load_orders.sql",
+    "sql/27_load_order_line.sql",
+    "sql/28_load_new_orders.sql",
+    "sql/29_load_region.sql",
+    "sql/30_load_nation.sql",
+    "sql/31_load_supplier.sql"
+  ],
+  "function_scripts": [
+    "sql/40_create_urand.sql",
+    "sql/41_create_urandexcept.sql",
+    "sql/42_create_nurand.sql",
+    "sql/43_create_namepart.sql",
+    "sql/44_create_genname.sql",
+    "sql/45_create_delivery.sql",
+    "sql/46_create_neworder.sql",
+    "sql/47_create_orderstatus.sql",
+    "sql/48_create_payment.sql",
+    "sql/49_create_stocklevel.sql"
+  ],
+  "generate_remote_accesses": true,
+  "generate_user_rollbacks": true
+}

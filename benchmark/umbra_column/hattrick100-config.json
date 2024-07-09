@@ -1,0 +1,7 @@
+{
+  "warmup_time": 60,
+  "measure_time": 300,
+  "relation": "columnar",
+  "backend": "filesystem",
+  "blockshift": 18
+}

@@ -1,0 +1,14 @@
+{
+  "database": "",
+  "init_scripts": [
+  ],
+  "schema_scripts": [
+    "sql/00_schema.sql"
+  ],
+  "load_scripts": [
+    "sql/01_load.sql"
+  ],
+  "function_scripts": [
+    "sql/02_functions.sql"
+  ]
+}

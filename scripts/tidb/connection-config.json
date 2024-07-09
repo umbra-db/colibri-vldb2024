@@ -1,0 +1,9 @@
+{
+  "driver": "MariaDB",
+  "host": "txbench-tidb",
+  "port": 4000,
+  "username": "root",
+  "password": "",
+  "isolation_level": "snapshot",
+  "pipeline_depth": 512
+}

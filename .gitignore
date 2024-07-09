@@ -1,0 +1,17 @@
+cmake-build-*
+.idea
+perf.data
+perf.data.old
+benchmark/**/output
+docker/**/src
+build
+
+data
+db
+output
+umbra_bin
+bin
+/txbench
+
+
+**/__pycache__/

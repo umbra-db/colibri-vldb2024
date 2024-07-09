@@ -1,0 +1,9 @@
+{
+  "host": "txbench-umbra",
+  "port": 5432,
+  "username": "postgres",
+  "password": "postgres",
+  "pipeline_depth": 512,
+  "async_commit": "on",
+  "call_error_handling": "swallow"
+}
